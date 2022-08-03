@@ -55,5 +55,24 @@ const makeGuess = function (guess){
    } else {
     letterGuesses.push(guess);
     console.log(letterGuesses);
+    updatePage();
    }
+};
+
+const updatePage = function (){
+    guessedLetters.innerHTML = "";
+    for (const letter of letterGuesses){    
+    const li = document.createElement("li");
+    li.innerText= letter;
+    guessedLetters.append(li);
+    }
+};
+
+const updateWordProgress = function (letterGuesses){
+    const wordUpper = word.toUpperCase();
+    const wordArray = wordUpper.split("");
+    console.log(wordArray);
+    if(wordArray.includes(letterGuesses)){
+        placeholderLetters.push(guess);
+    }
 };
